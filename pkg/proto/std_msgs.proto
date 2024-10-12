@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package std_msgs;
+option go_package = "./pb/";
+
+message Header {
+	uint32 seq = 1;
+	// 纳秒时间戳
+	uint64 stamp = 2;
+	string frame_id = 3;
+}

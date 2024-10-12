@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package geometry_msgs;
+option go_package = "./pb/";
+
+import "std_msgs.proto";
+
+message Pose {
+	Point position = 1;
+	Quaternion orientation = 2;
+}
+
+message Point {
+	double x = 1;
+	double y = 2;
+	double z = 3;
+}
+
+message Quaternion {
+	double x = 1;
+	double y = 2;
+	double z = 3;
+	double w = 4;
+}
+
+message PoseWithCovariance {
+	Pose pose = 1;
+	repeated double covariance = 2;
+}
+
+message PoseWithCovarianceStamped {
+	std_msgs.Header header = 1;
+	PoseWithCovariance pose = 2;
+}
+
+message PoseStamped {
+	std_msgs.Header header = 1;
+	Pose pose = 2;
+}
